@@ -5,11 +5,11 @@ import pickle
 import sqlite3
 
 # Khởi tạo bộ phát hiện khuôn mặt
-faceDetect=cv2.CascadeClassifier('haarcascade_frontalface_default.xml');
+faceDetect=cv2.CascadeClassifier(cv2.data.haarcascades+'haarcascade_frontalface_default.xml');
 
 # Khởi tạo bộ nhận diện khuôn mặt
 recognizer = cv2.face.LBPHFaceRecognizer_create()
-recognizer.read('recognizer/trainner.yml')
+recognizer.read("recognizer\\trainner.yml")
 
 
 

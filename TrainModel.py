@@ -4,7 +4,7 @@ import image
 from PIL import Image
 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
-detector= cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+detector= cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
 def getImagesAndLabels(path):
     # Lấy tất cả các file trong thư mục
@@ -33,7 +33,7 @@ def getImagesAndLabels(path):
 
 
 # Lấy các khuôn mặt và ID từ thư mục dataSet
-faceSamples,Ids = getImagesAndLabels('dataSet')
+faceSamples,Ids = getImagesAndLabels(r"C:\Users\CongHau\Desktop\Learn_Code\HeThongChamCong\face_recognizer\dataSet")
 
 # Train model để trích xuất đặc trưng các khuôn mặt và gán với từng nahan viên
 recognizer.train(faceSamples, np.array(Ids))

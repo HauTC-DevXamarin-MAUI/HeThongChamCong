@@ -2,11 +2,11 @@ import cv2
 import sqlite3
 
 cam = cv2.VideoCapture(0)
-detector=cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+detector=cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
 # Hàm cập nhật tên và ID vào CSDL
 def insertOrUpdate(id, name):
-    conn=sqlite3.connect("FaceBaseNew.db")
+    conn=sqlite3.connect(r"C:\Users\CongHau\Desktop\Learn_Code\HeThongChamCong\face_recognizer\FaceBaseNew.db")
     cursor=conn.execute('SELECT * FROM People WHERE ID='+str(id))
     isRecordExist=0
     for row in cursor:
